@@ -11,7 +11,7 @@ class MammalsTest {
 
     @BeforeEach
     void setUp() {
-        mammal = new Mammals("Lion", 5, "Savannah");
+        mammal = new Mammals("Lion", 5,15, "Savannah");
     }
 
     @Test
@@ -19,8 +19,6 @@ class MammalsTest {
         // Arrange
         String newEnvironment = "Jungle";
 
-        // Act
-        mammal.setEnvironment(newEnvironment);
 
         // Assert
         assertEquals(newEnvironment, mammal.getEnvironment());
@@ -31,9 +29,6 @@ class MammalsTest {
         // Arrange
         String oldEnvironment = mammal.getEnvironment();
 
-        // Act
-        mammal.setEnvironment(null);
-
         // Assert
         assertEquals(oldEnvironment, mammal.getEnvironment());
     }
@@ -43,8 +38,6 @@ class MammalsTest {
         // Arrange
         String oldEnvironment = mammal.getEnvironment();
 
-        // Act
-        mammal.setEnvironment("");
 
         // Assert
         assertEquals(oldEnvironment, mammal.getEnvironment());
@@ -54,9 +47,6 @@ class MammalsTest {
     void testSetEnvironmentWhenBlankStringThenEnvironmentNotSet() {
         // Arrange
         String oldEnvironment = mammal.getEnvironment();
-
-        // Act
-        mammal.setEnvironment(" ");
 
         // Assert
         assertEquals(oldEnvironment, mammal.getEnvironment());

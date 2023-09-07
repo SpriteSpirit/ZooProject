@@ -2,7 +2,7 @@ package animals;
 
 import java.time.LocalDate;
 
-public class Animal {
+public abstract class Animal {
     private String name;
     private final int birthYear;
 
@@ -16,33 +16,36 @@ public class Animal {
         if (age > 0) {
             this.birthYear = LocalDate.now().getYear() - age;
         } else {
-            this.birthYear = LocalDate.now().getYear() - Math.abs(age);;
+            this.birthYear = LocalDate.now().getYear() - Math.abs(age);
+            ;
         }
     }
+
     // functional methods                                          --------------------------------------------*********
-    public void eat() {
+    public abstract void eat();
 
-    }
+    public abstract void sleep();
 
-    public void sleep() {
+    public abstract void go();
 
-    }
-
-    public void go() {
-
-    }
     // getters and setters                                         --------------------------------------------*********
     public String getName() {
         return name;
     }
 
-    public void setName(String name) {
-        if (name != null && !name.isBlank() && !name.isEmpty()) {
-            this.name = name;
-        }
+    private void setName(String name) {
+        this.name = name != null && !name.isBlank() && !name.isEmpty() ? name : "Unknown type";
     }
 
     public int getAge() {
         return LocalDate.now().getYear() - birthYear;
+    }
+
+    @Override
+    public String toString() {
+        return String.format("Animal: %s%n" +
+                        "Type: %s%n" +
+                        "Age: %d%n",
+                getClass(), getName(), getAge());
     }
 }

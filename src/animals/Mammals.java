@@ -6,17 +6,37 @@ public class Mammals extends Animal {
 
     // constructors                                                --------------------------------------------*********
     public Mammals(String name) {
-        this(name, 0, "drought");
+        this(name, 0, 1.2f,"Aviary");
     }
 
-    public Mammals(String name, int age, String environment) {
+    public Mammals(String name, int age, float moveSpeed, String environment) {
         super(name, age);
-        this.environment = environment;
+        setEnvironment(environment);
+        setMoveSpeed(moveSpeed);
+    }
+
+    public Mammals(String name, int age) {
+        super(name, age);
     }
 
     // functional methods                                          --------------------------------------------*********
-    public void walk() {
-        System.out.printf("%s walking with %.2f speed",getName(), getMoveSpeed());
+
+    @Override
+    public void eat() {
+        System.out.println("Eating...");
+    }
+
+    @Override
+    public void sleep() {
+        System.out.println("Sleeping...");
+    }
+
+    @Override
+    public void go() {
+        System.out.println("Promenade...");
+    }
+    public void toWalk() {
+        System.out.printf("%s walking with %.2f speed%n%n", getName(), getMoveSpeed());
     }
 
     // getters and setters                                         --------------------------------------------*********
@@ -24,21 +44,28 @@ public class Mammals extends Animal {
         return environment;
     }
 
-    public void setEnvironment(String environment) {
-        if (environment != null && !environment.isBlank() && !environment.isEmpty()) {
-            this.environment = environment;
-        }
+    private void setEnvironment(String environment) {
+        this.environment = environment == null || environment.isBlank() || environment.isEmpty() ? "Savannah" : environment;
     }
 
     public float getMoveSpeed() {
         return moveSpeed;
     }
 
-    public void setMoveSpeed(float moveSpeed) {
-        if (moveSpeed > 0) {
-            this.moveSpeed = moveSpeed;
-        } else {
-            this.moveSpeed = Math.abs(moveSpeed);
-        }
+    private void setMoveSpeed(float moveSpeed) {
+        this.moveSpeed = moveSpeed < 0 ? Math.abs(moveSpeed) : (moveSpeed == 0 ? 1.2f : moveSpeed);
+    }
+
+    @Override
+    public String toString() {
+        return String.format(
+                "Type: %s%n" +
+                        "Age: %d%n" +
+                        "Speed: %.2f km/h%n" +
+                        "Environment: %s",
+                getName(),
+                getAge(),
+                getMoveSpeed(),
+                getEnvironment());
     }
 }
