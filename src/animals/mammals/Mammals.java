@@ -23,20 +23,20 @@ public class Mammals extends Animal {
 
     @Override
     public void eat() {
-        System.out.println("Eating...");
+        System.out.printf("%s is eating...%n", getName());
     }
 
     @Override
     public void sleep() {
-        System.out.println("Sleeping...");
+        System.out.printf("%s sleeping...%n", getName());
     }
 
     @Override
     public void go() {
-        System.out.println("Promenade...");
+        System.out.printf("%s promenade...%n", getName());
     }
     public void toWalk() {
-        System.out.printf("%s walking with %.2f speed%n%n", getName(), getMoveSpeed());
+        System.out.printf("%s walking with %.2f speed%n", getName(), getMoveSpeed());
     }
 
     // getters and setters                                         --------------------------------------------*********
@@ -62,7 +62,7 @@ public class Mammals extends Animal {
                 "Type: %s%n" +
                         "Age: %d%n" +
                         "Speed: %.2f km/h%n" +
-                        "Environment: %s",
+                        "Environment: %s%n",
                 getName(),
                 getAge(),
                 getMoveSpeed(),

@@ -1,4 +1,6 @@
-package animals;
+package animals.amphibian;
+
+import animals.Animal;
 
 public class Amphibian extends Animal {
     private String environment;
@@ -16,20 +18,20 @@ public class Amphibian extends Animal {
     // functional methods                                          --------------------------------------------*********
     @Override
     public void eat() {
-        System.out.println("Eating...");
+        System.out.printf("%s is eating...%n", getName());
     }
 
     @Override
     public void sleep() {
-        System.out.println("Sleeping...");
+        System.out.printf("%s sleeping...%n", getName());
     }
 
     @Override
     public void go() {
-        System.out.println("Promenade...");
+        System.out.printf("%s promenade...%n", getName());
     }
     public void toHunt() {
-        System.out.printf("%s hunting%n%n", getName());
+        System.out.printf("%s hunting%n", getName());
     }
 
     // getters and setters                                         --------------------------------------------*********
@@ -46,7 +48,7 @@ public class Amphibian extends Animal {
         return String.format(
                 "Type: %s%n" +
                         "Age: %d%n" +
-                        "Environment: %s",
+                        "Environment: %s%n",
                 getName(),
                 getAge(),
                 getEnvironment());

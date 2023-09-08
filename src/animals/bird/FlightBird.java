@@ -1,21 +1,21 @@
-package animals;
+package animals.bird;
 
-public class FlightlessBirds extends Bird{
+public class FlightBird extends Bird {
     private String typeMovement;
 
     // constructors                                                --------------------------------------------*********
-    public FlightlessBirds(String name) {
-        this(name, 0, "Hills", "Walk");
+    public FlightBird(String name) {
+        this(name, 0, "Forest", "Fly");
     }
 
-    public FlightlessBirds(String name, int age, String environment, String typeMovement) {
+    public FlightBird(String name, int age, String environment, String typeMovement) {
         super(name, age, environment);
         setTypeMovement(typeMovement);
     }
 
     // functional methods                                          --------------------------------------------*********
     public void toFly() {
-        System.out.printf("%s walking%n%n", getName());
+        System.out.printf("%s flying%n", getName());
     }
 
     // getters and setters                                         --------------------------------------------*********
@@ -24,7 +24,7 @@ public class FlightlessBirds extends Bird{
     }
 
     private void setTypeMovement(String typeMovement) {
-        this.typeMovement = typeMovement == null || typeMovement.isBlank() || typeMovement.isEmpty() ? "Hills" : typeMovement;
+        this.typeMovement = typeMovement == null || typeMovement.isBlank() || typeMovement.isEmpty() ? "Forest" : typeMovement;
     }
 
     @Override
@@ -33,7 +33,7 @@ public class FlightlessBirds extends Bird{
                 "Type: %s%n" +
                         "Age: %d%n" +
                         "Environment: %s%n" +
-                        "Type Movement: %s",
+                        "Type Movement: %s%n",
                 getName(),
                 getAge(),
                 getEnvironment(),

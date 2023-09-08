@@ -1,6 +1,8 @@
-package animals;
+package animals.mammals;
 
-public class Herbivore extends Mammals{
+import animals.Mammals;
+
+public class Herbivore extends Mammals {
     private String foodType;
     // constructors                                                --------------------------------------------*********
     public Herbivore(String name) {
@@ -14,7 +16,7 @@ public class Herbivore extends Mammals{
 
     // functional methods                                          --------------------------------------------*********
     public void toGaze() {
-        System.out.printf("%s to gazing%n%n", getName());
+        System.out.printf("%s to gazing%n", getName());
     }
 
     // getters and setters                                         --------------------------------------------*********
@@ -31,7 +33,7 @@ public class Herbivore extends Mammals{
         return String.format(
                 "Type: %s%n" +
                         "Age: %d%n" +
-                        "Food type: %s",
+                        "Food type: %s%n",
                 getName(),
                 getAge(),
                 getFoodType());
